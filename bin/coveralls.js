@@ -13,9 +13,12 @@ process.stdin.on('data', function(chunk) {
 });
 
 process.stdin.on('end', function() {
-    handleInput(input, function(err) {
+    handleInput(input, function(err, body) {
       if (err) {
         throw err;
+      }
+      if (body) {
+        process.stdout.write(body.url);
       }
     });
 });
