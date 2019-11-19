@@ -18,7 +18,7 @@ process.stdin.on('end', function() {
         throw err;
       }
       if (body) {
-        process.stdout.write(body.url);
+        process.stdout.write(JSON.parse(body).url);
       }
     });
 });
